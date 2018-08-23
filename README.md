@@ -29,7 +29,9 @@
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
 
-## Servlet Mapping
+## Servlet
+
+### Servlet Mapping
 - 접속 경로가 너무 긴 경우 짧은 이름으로 사용할 수 있습니다.
 - 보안에 노출되어 있는 경로를 다른 이름으로 간단하게 맵핑할 수 있습니다.
 
@@ -41,3 +43,10 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
         <th>URL맵핑 경로</th><td>http://localhost:8080/HelloWorld/HW</td>
     </tr>
 </table>
+
+#### Servlet Mapping 방법
+- [Annotation을 이용한 서블릿 맵핑](http://codedragon.tistory.com/4596)
+
+- [web.xml에 서블릿 맵핑](http://codedragon.tistory.com/4604)
+
+- [Annotation과 XML의 차이점](http://blog.naver.com/PostView.nhn?blogId=wwwkang8&logNo=220994093310)
