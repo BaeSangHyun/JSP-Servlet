@@ -27,5 +27,4 @@
 
 ## 1-2 Java웹
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
-<img src="../../Web.png" align="center" hspace="400">
-
+![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
