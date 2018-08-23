@@ -15,7 +15,7 @@
 
 <table>
     <tr>
-        <th colspan="4">http://www.sba.seoul.kr:80/kr/index<th>
+        <th colspan="4">http://www.sba.seoul.kr:80/kr/index</th>
     </tr>
     <tr>
         <td>http</td><td>www.sba.seoul.kr</td><td>80</td><td>kr/index</td>
