@@ -1,6 +1,6 @@
 # JSP-Servlet
 
-## 웹프로그래밍이란
+## 1-1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
 2. 웹어플리케이션이란, 웹을 기반으로 작동되는 프로그램
 3. 웹이란, 1개 이상의 사이트가 연결되어있는 인터넷 서비스의 한가지 형태
@@ -24,3 +24,8 @@
         <td>프로토콜</td><td>컴퓨터 주소(DNS를 통한 IP주소로 변경)</td><td>port</td><td>information path</td>
     </tr>
 </table>
+
+## 1-2 Java웹
+JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
+<img src="../../Web.png" align="center" hspace="400">
+
