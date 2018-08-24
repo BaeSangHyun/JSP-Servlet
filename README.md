@@ -11,6 +11,7 @@
     - [Context Path](#context-path)
 - [JSP](#jsp)
     - [JSP 태그종류](#jsp-태그종류)
+    - [JSP 동작원리](#jsp-동작원리)
 
 ## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -97,3 +98,17 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 표현식 | `<%=       %>` | 결과값 출력
 스크립트릿 | `<%    %>` | JAVA 코드
 액션태그 | `<jsp:action>  </jsp:action>` | 자바빈 연결
+
+### JSP 동작원리
+- 클라이언트가 웹브라우저로 *.jsp를 요청하게되면 JSP컨테이너가 JSP파일을 Servlet파일(.java)로 변환한다. 그리고 Servlet파일(.java)은 컴파일 된 후 클래스 파일(.class)로 변환되고, 요청한 클라이언트한테 html파일 형태로 응답된다.
+- 클라이언트가 jsp를 요청하면 Servlet이 있는지 없는지를 확인하고 없으면 Servlet을 생성하여 요청에 대한 응답을 하고 그 뒤로 생성했던 Servlet을 지속적으로 재활용하여 실행하므로 속도가 빠르다.
+
+### JSP 내부 객체
+개발자가 객체를 생성하지 않고 바로 사용할 수 있는 객체.<br />
+JSP에서 제공되는 내부객체는 JSP컨테이너에 의해 Servlet으로 변화될 때 자동으로 객체가 생성된다.
+
+#### 내부 객체 종류
+- 입출력 객체 : request, response, out
+- 서블릿 객체 : page, config
+- 세션 객체 : session
+- 예외 객체 : exception
