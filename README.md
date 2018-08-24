@@ -3,12 +3,12 @@
 ##Content
 - [웹프로그래밍이란](#웹프로그래밍이란)
 - [Java Web](#java-web)
-- [Servlet](#Servlet)
-    - [Servlet Mapping](#Servlet-Mapping)
-        - [Servlet Mapping 방법](#Servlet-Mapping-방법)
-    - [doGet()](#doGet())
-    - [doPost()](#doPost())
-    - [Context Path](#Context-Path)
+- [Servlet](#servlet)
+    - [Servlet Mapping](#servlet-mapping)
+        - [Servlet Mapping 방법](#servlet-mapping-방법)
+    - [doGet()](#doget())
+    - [doPost()](#dopost())
+    - [Context Path](#context-path)
 
 ## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
