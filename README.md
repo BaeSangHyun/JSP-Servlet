@@ -1,6 +1,6 @@
 # JSP-Servlet
 
-##Content
+## Content
 - [웹프로그래밍이란](#웹프로그래밍이란)
 - [Java Web](#java-web)
 - [Servlet](#servlet)
@@ -9,7 +9,6 @@
     - [doGet()](#doget)
     - [doPost()](#dopost)
     - [Context Path](#context-path)
-
 - [JSP](#jsp)
     - [JSP 태그종류](#jsp-태그종류)
 
