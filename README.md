@@ -2,7 +2,7 @@
 
 ##Content
 - [웹프로그래밍이란](#웹프로그래밍이란)
-- [Java Web](#Java-Web)
+- [Java Web](#java-web)
 - [Servlet](#Servlet)
     - [Servlet Mapping](#Servlet-Mapping)
         - [Servlet Mapping 방법](#Servlet-Mapping-방법)
