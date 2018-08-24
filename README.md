@@ -17,6 +17,7 @@
         - [Script](#script)
         - [지시자](#지시자)
         - [주석](#주석)
+    - [request 객체](#request-객체)
 
 ## 1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -121,33 +122,34 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ![1](https://user-images.githubusercontent.com/42559714/44564936-8c954980-a7a0-11e8-844f-5933b1c362e8.PNG)
 
 ### JSP 내부 객체
-개발자가 객체를 생성하지 않고 바로 사용할 수 있는 객체.<br />
+개발자가 객체를 생성하지 않고 바로 사용할 수 있는 객체<br />
 JSP에서 제공되는 내부객체는 JSP컨테이너에 의해 Servlet으로 변화될 때 자동으로 객체가 생성된다.
 
 #### 내부 객체 종류
-- 입출력 객체 : request, response, out
-- 서블릿 객체 : page, config
-- 세션 객체 : session
-- 예외 객체 : exception
+객체선언을 할 필요가 없다.
+- 입출력 객체 : `request`, `response`, `out`
+- 서블릿 객체 : `page`, `config`
+- 세션 객체 : `session`
+- 예외 객체 : `exception`
 
-### 문법
+### 기본 문법
 
 #### Script
 - 스크립트릿(scriptlet) : `<%  java 코드 기술  %>`
-    - JSP페이지에서 JAVA언어를 사용하기 위한 요소.
+    - JSP페이지에서 JAVA언어를 사용하기 위한 요소
 - 선언(declaration) : `<%  java 코드 기술  %>`
-    - JSP페이지 내에서 사용되는 변수 또는 메소드를 선언할 때 사용.
+    - JSP페이지 내에서 사용되는 변수 또는 메소드를 선언할 때 사용
     - 선언된 변수 및 메소드는 전역의 의미로 사용된다.
 - 표현식(expression) : `<%=  java 코드 기술  %>`
-    - JSP페이지 내에서 사용되는 변수의 값 또는 메소드 호출 결과값을 출력하기 위해 사용.
+    - JSP페이지 내에서 사용되는 변수의 값 또는 메소드 호출 결과값을 출력하기 위해 사용
     - String 타입이며, ';'를 사용할 수 없다.
 
 #### 지시자
-JSP페이지의 전체적인 속성을 지정할 때 사용.
-`<%@    속성    %>`
+`<%@    속성    %>`<br />
+JSP페이지의 전체적인 속성을 지정할 때 사용
 
 ##### page 지시자
-- 페이지의 속성을 지정할 때 사용. 주로 사용되는 언어 지정 및 import문을 많이 사용.
+- 페이지의 속성을 지정할 때 사용. 주로 사용되는 언어 지정 및 import문을 많이 사용
 ```js
 <%@page import="java.util.Arrays"%>
 <%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
@@ -160,5 +162,40 @@ JSP페이지의 전체적인 속성을 지정할 때 사용.
 ```
 
 #### 주석
-실제 프로그램에는 영향이 없고, 프로그램 설명들의 목적으로 사용되는 태그.
-`<!--  comment  -->`
+`<!--  comment  -->`<br />
+실제 프로그램에는 영향이 없고, 프로그램 설명들의 목적으로 사용되는 태그<br /><br />
+JSP주석은 HTML과는 다르게 WAS에서 컴파일 후 응답하는 형식이라 주석된 부분은 브라우저 소스보기에서 보이지 않는다.
+
+### request 객체
+`request` : 웹브라우저를 통해 서버에 어떤 정보를 요청하는 것
+
+#### request객체 관련 메소드
+- `getContextPath()` : 웹어플리케이션의 컨텍스트 패스를 얻는다.
+- `getMethod()` : get방식과 post방식을 구분할 수 있다.
+- `getSession()` : 세션 객체를 얻는다.
+- `getProtocol()` : 해당 프로토콜을 얻는다.
+- `getRequestURL()` : 요청 URL을 얻는다.
+- `getRequestURI()` : 요청 URI를 얻는다.
+- `getQueryString()` : 쿼리스트링을 얻는다.
+
+#### Parameter 메소드
+- `getParameter(String name)` : name에 해당하는 파라미터 값을 구함
+- `getParameterNames()` : 모든 파라미터 이름을 구함
+- `getPrameterVvalues(String name)` : name에 해당하는 파라미터값들을 구함
+
+### response 객체
+`reponse` : 웹브라우저의 요청에 응답하는 것
+
+#### response객체 관련 메소드
+- `getCharacterEncoding()` : 응답할 때 문자의 인코딩 형태를 구한다.
+- `addCookie(Cookie)` : 쿠키를 지정 한다.
+- `sendRedirect(URL)` : 지정한 URL로 이동한다.
+
+
+### Action 태그
+JSP페이지 내에서 어떤 동작을 하도록 지시하는 태그.
+
+- `foward` : 현재의 페이지에서 다른 특정페이지로 전환할 때 사용.<br />
+`<jsp:forward page="*.jsp"/>`
+
+
