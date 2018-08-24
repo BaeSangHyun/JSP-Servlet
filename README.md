@@ -2,11 +2,13 @@
 
 ##Content
 - [웹프로그래밍이란](#웹프로그래밍이란)
-- [Java Web](#Java Web)
-- [Servlet](Servlet)
-    - Servlet Mapping
-        - Servlet Mapping 방법
-- doGet(), doPost()
+- [Java Web](#Java_Web)
+- [Servlet](#Servlet)
+    - [Servlet Mapping](#Servlet_Mapping)
+        - [Servlet Mapping 방법](#Servlet_Mapping_방법)
+    - [doGet()](#doGet())
+    - [doPost()](#doPost())
+    - [Context Path](#Context Path)
 
 ## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -59,7 +61,9 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 
 - [Annotation과 XML의 차이점](http://blog.naver.com/PostView.nhn?blogId=wwwkang8&logNo=220994093310)
 
-### doGet(), doPost()
+### doGet()
+
+### doPost()
 
 ### Context Path
 
