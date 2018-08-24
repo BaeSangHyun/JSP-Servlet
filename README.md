@@ -11,6 +11,9 @@
 - [JSP](#jsp)
     - [JSP 태그종류](#jsp-태그종류)
     - [JSP 동작원리](#jsp-동작원리)
+    - [JSP 내부 객체](#jsp-내부-객체)
+        - [내부 객체 종류](#내부-객체-종류)
+    - [JSP스크립트릿](#jsp스크립트릿)
 
 ## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -63,7 +66,18 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 
 - [Annotation과 XML의 차이점](http://blog.naver.com/PostView.nhn?blogId=wwwkang8&logNo=220994093310)
 
-### doGet(), dopost()
+### doGet(), doPost()
+
+#### doGet(),doPost() 구문
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub	
+	}
+
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+```
 
 
 
@@ -101,6 +115,7 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ### JSP 동작원리
 - 클라이언트가 웹브라우저로 *.jsp를 요청하게되면 JSP컨테이너가 JSP파일을 Servlet파일(.java)로 변환한다. 그리고 Servlet파일(.java)은 컴파일 된 후 클래스 파일(.class)로 변환되고, 요청한 클라이언트한테 html파일 형태로 응답된다.
 - 클라이언트가 jsp를 요청하면 Servlet이 있는지 없는지를 확인하고 없으면 Servlet을 생성하여 요청에 대한 응답을 하고 그 뒤로 생성했던 Servlet을 지속적으로 재활용하여 실행하므로 속도가 빠르다.
+![1](https://user-images.githubusercontent.com/42559714/44564936-8c954980-a7a0-11e8-844f-5933b1c362e8.PNG)
 
 ### JSP 내부 객체
 개발자가 객체를 생성하지 않고 바로 사용할 수 있는 객체.<br />
@@ -111,3 +126,34 @@ JSP에서 제공되는 내부객체는 JSP컨테이너에 의해 Servlet으로 �
 - 서블릿 객체 : page, config
 - 세션 객체 : session
 - 예외 객체 : exception
+
+### Script
+- 스크립트릿(scriptlet) : `<%  java 코드 기술  %>`
+    - JSP페이지에서 JAVA언어를 사용하기 위한 요소.
+- 선언(declaration) : `<%  java 코드 기술  %>`
+    - JSP페이지 내에서 사용되는 변수 또는 메소드를 선언할 때 사용.
+    - 선언된 변수 및 메소드는 전역의 의미로 사용된다.
+- 표현식(expression) : `<%=  java 코드 기술  %>`
+    - JSP페이지 내에서 사용되는 변수의 값 또는 메소드 호출 결과값을 출력하기 위해 사용.
+    - String 타입이며, ';'를 사용할 수 없다.
+
+### 지시자
+JSP페이지의 전체적인 속성을 지정할 때 사용.
+`<%@    속성    %>`
+
+#### page 지시자
+- 페이지의 속성을 지정할 때 사용. 주로 사용되는 언어 지정 및 import문을 많이 사용.
+```js
+<%@page import="java.util.Arrays"%>
+<%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+```
+
+#### include 지시자
+- 현재 페이지내에 다른 페이지를 삽입 할 때 사용. file속성을 이용한다.
+```js
+<%@ include file="*.jsp"%>
+```
+
+### 주석
+실제 프로그램에는 영향이 없고, 프로그램 설명들의 목적으로 사용되는 태그.
+`<!--  comment  -->`
