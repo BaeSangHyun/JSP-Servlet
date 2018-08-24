@@ -6,8 +6,8 @@
 - [Servlet](#servlet)
     - [Servlet Mapping](#servlet-mapping)
         - [Servlet Mapping 방법](#servlet-mapping-방법)
-    - [doGet()](#doget())
-    - [doPost()](#dopost())
+    - [doGet()](#doget)
+    - [doPost()](#dopost)
     - [Context Path](#context-path)
 
 ## 웹프로그래밍이란
