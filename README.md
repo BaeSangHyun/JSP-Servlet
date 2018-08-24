@@ -13,9 +13,12 @@
     - [JSP 동작원리](#jsp-동작원리)
     - [JSP 내부 객체](#jsp-내부-객체)
         - [내부 객체 종류](#내부-객체-종류)
-    - [JSP스크립트릿](#jsp스크립트릿)
+    - [문법](#문법)
+        - [Script](#script)
+        - [지시자](#지시자)
+        - [주석](#주석)
 
-## 웹프로그래밍이란
+## 1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
 2. 웹어플리케이션이란, 웹을 기반으로 작동되는 프로그램
 3. 웹이란, 1개 이상의 사이트가 연결되어있는 인터넷 서비스의 한가지 형태
@@ -40,11 +43,11 @@
     </tr>
 </table>
 
-## Java Web
+## 2. Java Web
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
 
-## Servlet
+## 3. Servlet
 
 ### Servlet Mapping
 - 접속 경로가 너무 긴 경우 짧은 이름으로 사용할 수 있습니다.
@@ -100,7 +103,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 ### 웹어플리케이션 감시 : ServletContextListener
 
 
-## JSP
+## 4. JSP
 
 ### JSP 태그종류
 기능 | 코드 | 설명
@@ -127,7 +130,9 @@ JSP에서 제공되는 내부객체는 JSP컨테이너에 의해 Servlet으로 �
 - 세션 객체 : session
 - 예외 객체 : exception
 
-### Script
+### 문법
+
+#### Script
 - 스크립트릿(scriptlet) : `<%  java 코드 기술  %>`
     - JSP페이지에서 JAVA언어를 사용하기 위한 요소.
 - 선언(declaration) : `<%  java 코드 기술  %>`
@@ -137,23 +142,23 @@ JSP에서 제공되는 내부객체는 JSP컨테이너에 의해 Servlet으로 �
     - JSP페이지 내에서 사용되는 변수의 값 또는 메소드 호출 결과값을 출력하기 위해 사용.
     - String 타입이며, ';'를 사용할 수 없다.
 
-### 지시자
+#### 지시자
 JSP페이지의 전체적인 속성을 지정할 때 사용.
 `<%@    속성    %>`
 
-#### page 지시자
+##### page 지시자
 - 페이지의 속성을 지정할 때 사용. 주로 사용되는 언어 지정 및 import문을 많이 사용.
 ```js
 <%@page import="java.util.Arrays"%>
 <%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 ```
 
-#### include 지시자
+##### include 지시자
 - 현재 페이지내에 다른 페이지를 삽입 할 때 사용. file속성을 이용한다.
 ```js
 <%@ include file="*.jsp"%>
 ```
 
-### 주석
+#### 주석
 실제 프로그램에는 영향이 없고, 프로그램 설명들의 목적으로 사용되는 태그.
 `<!--  comment  -->`
