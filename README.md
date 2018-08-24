@@ -1,6 +1,14 @@
 # JSP-Servlet
 
-## 1-1. 웹프로그래밍이란
+##Content
+- [웹프로그래밍이란](#웹프로그래밍이란)
+- [Java Web](#Java Web)
+- [Servlet](Servlet)
+    - Servlet Mapping
+        - Servlet Mapping 방법
+- doGet(), doPost()
+
+## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
 2. 웹어플리케이션이란, 웹을 기반으로 작동되는 프로그램
 3. 웹이란, 1개 이상의 사이트가 연결되어있는 인터넷 서비스의 한가지 형태
@@ -25,7 +33,7 @@
     </tr>
 </table>
 
-## 1-2 Java웹
+## Java Web
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
 
@@ -50,3 +58,23 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 - [web.xml에 서블릿 맵핑](http://codedragon.tistory.com/4604)
 
 - [Annotation과 XML의 차이점](http://blog.naver.com/PostView.nhn?blogId=wwwkang8&logNo=220994093310)
+
+### doGet(), doPost()
+
+### Context Path
+
+### Servlet 작동순서
+
+### Servlet LifeCycle
+
+### Servlet 선,후처리
+
+### Servlet Parameter
+
+### Encoding
+
+### Servlet 초기화 파라미터 : ServletConfig
+
+### 데이터 공유 : Servlet Context
+
+### 웹어플리케이션 감시 : ServletContextListener
