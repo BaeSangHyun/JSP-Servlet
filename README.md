@@ -6,8 +6,7 @@
 - [Servlet](#servlet)
     - [Servlet Mapping](#servlet-mapping)
         - [Servlet Mapping 방법](#servlet-mapping-방법)
-    - [doGet()](#doget)
-    - [doPost()](#dopost)
+    - [doGet(), doPost()](#doget-dopost)
     - [Context Path](#context-path)
 - [JSP](#jsp)
     - [JSP 태그종류](#jsp-태그종류)
@@ -64,9 +63,9 @@ JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 
 - [Annotation과 XML의 차이점](http://blog.naver.com/PostView.nhn?blogId=wwwkang8&logNo=220994093310)
 
-### doGet()
+### doGet(), dopost()
 
-### doPost()
+
 
 ### Context Path
 
