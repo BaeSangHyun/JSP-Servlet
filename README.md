@@ -17,7 +17,13 @@
         - [Script](#script)
         - [지시자](#지시자)
         - [주석](#주석)
-    - [request 객체](#request-객체)
+    - [Request 객체](#request-객체)
+        - [Request객체 관련 메소드](#request객체-관련-메소드)
+        - [Parameter 메소드](#parameter-메소드)
+    - [Response 객체](#response-객체)
+        - [Response객체 관련 메소드](#response객체-관련-메소드)
+    - [Action 태그](#Action-태그)
+    - [쿠키](#쿠키)
 
 ## 1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -166,10 +172,10 @@ JSP페이지의 전체적인 속성을 지정할 때 사용
 실제 프로그램에는 영향이 없고, 프로그램 설명들의 목적으로 사용되는 태그<br /><br />
 JSP주석은 HTML과는 다르게 WAS에서 컴파일 후 응답하는 형식이라 주석된 부분은 브라우저 소스보기에서 보이지 않는다.
 
-### request 객체
+### Request 객체
 `request` : 웹브라우저를 통해 서버에 어떤 정보를 요청하는 것
 
-#### request객체 관련 메소드
+#### Request객체 관련 메소드
 - `getContextPath()` : 웹어플리케이션의 컨텍스트 패스를 얻는다.
 - `getMethod()` : get방식과 post방식을 구분할 수 있다.
 - `getSession()` : 세션 객체를 얻는다.
@@ -183,10 +189,10 @@ JSP주석은 HTML과는 다르게 WAS에서 컴파일 후 응답하는 형식이
 - `getParameterNames()` : 모든 파라미터 이름을 구함
 - `getPrameterVvalues(String name)` : name에 해당하는 파라미터값들을 구함
 
-### response 객체
+### Response 객체
 `reponse` : 웹브라우저의 요청에 응답하는 것
 
-#### response객체 관련 메소드
+#### Response객체 관련 메소드
 - `getCharacterEncoding()` : 응답할 때 문자의 인코딩 형태를 구한다.
 - `addCookie(Cookie)` : 쿠키를 지정 한다.
 - `sendRedirect(URL)` : 지정한 URL로 이동한다.
@@ -195,7 +201,42 @@ JSP주석은 HTML과는 다르게 WAS에서 컴파일 후 응답하는 형식이
 ### Action 태그
 JSP페이지 내에서 어떤 동작을 하도록 지시하는 태그.
 
-- `foward` : 현재의 페이지에서 다른 특정페이지로 전환할 때 사용.<br />
-`<jsp:forward page="*.jsp"/>`
+- `foward` : 현재의 페이지에서 다른 특정페이지로 전환할 때 사용. `URL값은 그대로 남는다`.
+```java
+<jsp:forward page="*.jsp"/>
+```
+
+- `include` 태그
+현재 페이지에 다른 페이지를 삽입할 때 사용한다. 삽입한 페이지를 다 실행 후 본래 페이지로 돌아와 마저 실행한다.
+```java
+<jsp:page="*.jsp" flush="true" />
+```
+
+- `param` 태그
+forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태그. 이름과 값으로 이루어져 있다.
+```java
+    <jsp:forward page="*.jsp">
+        <jsp:param name="id" value="abcdef" />
+        <jsp:param name="pw" value="1234" />
+    </jsp:forward>
+```
+
+### 쿠키
+> 웹브라우저에서 서버로 어떤 데이터를 요청하면, 서버측에서는 알맞은 로직을 수행한 수 데이터를 웹브라우저에 응답합니다. 그리고, 서버는 웹브라우저와의 관계를 종료합니다. 이렇게, 웹브라우저에 응답 후 관계를 끊는 것은 http프로토콜의 특징입니다.
+연결이 끊겼을 때 어떤 정보를 지속적으로 유지하기 위한 수단으로 쿠키라는 방식을 사용합니다. **쿠키는 서버에서 생성하여, 서버가 아닌 클라이언트 측에 특정 정보를 저장**합니다. 그리고 서버에 요청 할 때 마다 속성값을 참조 또는 변경 할 수 있습니다.<br />
+쿠키는 4kb로 용량이 제한적이며, 300개까지 데이터 정보를 가질 수 있습니다.
+
+![2](https://user-images.githubusercontent.com/42559714/44571608-2fa78c80-a7bc-11e8-9fbc-0b0d710ce53d.PNG)
+
+#### 쿠키 관련 메소드
+- `setMaxAge()` : 쿠키 유효기간을 설정
+- `setpath()` : 쿠키사용의 유효 디렉토리를 설정
+- `setValue()` : 쿠키의 값을 설정
+- `setVersion()` : 쿠키 버전을 설정
+- `getMaxAge()` : 쿠키 유효기간 정보를 얻음
+- `getName()` : 쿠키 이름을 얻음
+- `getPath()` : 쿠키사용의 유효 디렉토리 정보를 얻음
+- `getValue()` : 쿠키의 값을 얻음
+- `getVersion()` : 쿠키 버전을 얻음
 
 
