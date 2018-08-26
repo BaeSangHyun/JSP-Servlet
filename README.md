@@ -25,6 +25,7 @@
     - [Action 태그](#Action-태그)
     - [쿠키](#쿠키)
     - [세션](#세션)
+        -[세션 메소드](#세션-메소드)
 
 ## 1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -249,18 +250,36 @@ forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태�
 
 #### 세션 메소드
 - `setAttribute()` : 세션에 데이터를 저장.
-- `getAttribute()` : 세션에서 데이터를 얻는다.
+- `getAttribute()` : 세션에서 데이터를 얻는다. (Object로 받아진다.)
 - `getAttributeNames()` : 세션에 저장되어 있는 모든 데이터의 이름(유니크한 키값)을 얻는다.
 - `getId()` : 자동 생성된 세션의 유니크한 아이디를 얻는다.
 - `isNew()` : 세션이 최초 생성되었는지, 이전에 생성된 세션인지를 구분.
-- `getMaxInactiveInterval()` : 세션의 유효시간을 얻는다. 가장 최근 요청시점을 기준으로 카운트.
+- `getMaxInactiveInterval()` : 세션의 유효시간을 얻는다. 가장 최근 요청시점을 기준으로 카운트.(tomcat폴더의 conf\web.xml파일을 수정하면 세션의 유효시간을 설정 할 수 있다.)
 - `removeAttribute()` : 세션에서 특정 데이트를 제거.
 - `Invalidate()` : 세션의 모든 데이터를 삭제.
 
-
 ### 예외 페이지
+- `<%@ page errorPage="*.jsp"%>`
+- `<%@ page isErrorPage="true"%>`
+- `<% response.setStatus(200); %>`
+- `<%= exception.getMessage() %>`
 
 ### 자바 빈
+반복적인 작업을 효율적으로 하기 위해 빈을 사용한다. 빈이란, JAVA언어의 데이터(속성)와 기능(메소드)으로 이루어진 클래스이다.
+jsp페이지를 만들고, 액션태그를 이용하여 빈을 사용한다. 그리고 빈의 내부 데이터를 처리한다.
+
+#### 관련 액션 태그
+- `useBean` : 특정 Bean을 사용한다고 명시할 때 사용
+`<jsp:useBean id="Bean이름" class="패키지명.Bean이름" scope="page"/>`
+    - `Scope`
+        - `page` : 생성된 페이지 내에서만 사용 가능
+        - `request` : 요청된 페이지 내에서만 사용 가능
+        - `session` : 웹브라우저의 생명주기와 동일하게 사용 가능
+        - `application` : 웹 어플리케이션 생명주기와 동일하게 사용 가능
+- `setProperty` : 데이터 값을 설정할 때 사용
+`<jsp:setProperty name="Bean이름" property="속성이름" value="속석(데이터)값"/>`
+- `getProperty` : 데이터 값을 가져올 때 사용
+`<jsp:getProperty name="Bean이름" property="속성이름">`
 
 ## 데이터베이스
 
