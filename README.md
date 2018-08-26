@@ -269,20 +269,22 @@ forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태�
 jsp페이지를 만들고, 액션태그를 이용하여 빈을 사용한다. 그리고 빈의 내부 데이터를 처리한다.
 
 #### 관련 액션 태그
-- `useBean` : 특정 Bean을 사용한다고 명시할 때 사용
+- `useBean` : 특정 Bean을 사용한다고 명시할 때 사용<br />
 `<jsp:useBean id="Bean이름" class="패키지명.Bean이름" scope="page"/>`
     - `Scope`
         - `page` : 생성된 페이지 내에서만 사용 가능
         - `request` : 요청된 페이지 내에서만 사용 가능
         - `session` : 웹브라우저의 생명주기와 동일하게 사용 가능
         - `application` : 웹 어플리케이션 생명주기와 동일하게 사용 가능
-- `setProperty` : 데이터 값을 설정할 때 사용
+- `setProperty` : 데이터 값을 설정할 때 사용<br />
 `<jsp:setProperty name="Bean이름" property="속성이름" value="속석(데이터)값"/>`
-- `getProperty` : 데이터 값을 가져올 때 사용
+- `getProperty` : 데이터 값을 가져올 때 사용<br />
 `<jsp:getProperty name="Bean이름" property="속성이름">`
 
 ## 데이터베이스
 
-###커넥션 풀
+![dbms](https://user-images.githubusercontent.com/42559714/44625449-df0f6b00-a944-11e8-94dd-3e45bcbf0f9d.PNG)
+
+### 커넥션 풀
 
 
