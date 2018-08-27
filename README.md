@@ -9,10 +9,10 @@
     - [doGet(), doPost()](#doget-dopost)
     - [Context Path](#context-path)
     - [Servlet 작동순서](#servlet-작동순서)
-    - [Servlet LifeCyle(생명주기)](#servlet-lifecyle(생명주기))
+    - [Servlet LifeCyle](#servlet-lifecyle)
     - [Servlet 선,후처리](#servlet-선후처리)
     - [Servlet Parameter](#servlet-parameter)
-    - [Encoding](#encoding)
+    - [한글 Encoding](#한글-encoding)
     - [Servlet 초기화 파라미터](#servlet-초기화-파라미터)
     - [데이터 공유](#데이터-공유)
     - [웹어플리케이션 감시](#웹어플리케이션-감시)
@@ -108,7 +108,7 @@ WAS에서 웹어플리케이션을 구분하기 위한 path.
 ![3](https://user-images.githubusercontent.com/42559714/44635072-21d05200-a9dc-11e8-832b-ea051f881575.PNG)
 요청이 있을 때마다 쓰레드를 생성하여 처리하기 때문에 서버부하가 적다.
 
-### Servlet LifeCycle(생명주기)
+### Servlet LifeCycle
 Servelt은 최초 요청 시 객체가 만들어져 메모리에 로딩되고, 이후 요청 시에는 만들었던 객체를 재활용하여 동작속도가 빠르다.
 
 ![4](https://user-images.githubusercontent.com/42559714/44635201-732d1100-a9dd-11e8-9271-9aafe5fb5702.PNG)
@@ -123,13 +123,33 @@ Form 태그의 submit 버튼을 클릭하여 데이터를 서버로 전송 후 �
 
 ![6](https://user-images.githubusercontent.com/42559714/44635273-20a02480-a9de-11e8-8887-58121b24dab0.PNG)
 
-### Encoding
+### 한글 Endocing
+서버마다 문자 처리방식이 다르기 때문에 개발자가 별도의 한글 인코딩을 해주지 않으면 한글이 꺠져보이는 현상이 있다.
+
+![7](https://user-images.githubusercontent.com/42559714/44635393-fcddde00-a9df-11e8-876a-0dab5de4dfb8.PNG)
 
 ### Servlet 초기화 파라미터
+특정 Servlet이 생성될때 특정 경로 및 아이디 정보 등 초기에 플요한 데이터들이 있다.
+이런 데이터들을 초기화 파라미터라고 하며, web.xml에 기술하거나 Servlet파일에 직접 기술하여 `ServletConfig 클래스`를 이용하여 사용한다.
+
+#### web.xml파일에 초기화 파라미터 기술
+
+![8](https://user-images.githubusercontent.com/42559714/44635517-06b41100-a9e1-11e8-981a-ab64325852ba.PNG)
+
+#### Servlet파일에 초기화 파라미터 기술
+
+![9](https://user-images.githubusercontent.com/42559714/44635519-07e53e00-a9e1-11e8-917f-f3d886ab3fc1.PNG)
 
 ### 데이터 공유
+여러 Servlet에 특정 데이터를 공유해야 할 경우 `context parameter`를 이용하여 web.xml에 기술하고 Servlet에서 공유해서 사용할 수 있다.
+
+![10](https://user-images.githubusercontent.com/42559714/44635565-58f53200-a9e1-11e8-97f7-bcb06ec9dd4b.PNG)
 
 ### 웹어플리케이션 감시
+`ServletContextListener` 클래스는 웹 어플리케이션 생명주기(LifeCycle)을 감시하여 리스너의 해당 메소드가 웹 어플리케이션의 시작과 종료 시 호출된다.
+
+![11](https://user-images.githubusercontent.com/42559714/44635626-e3d62c80-a9e1-11e8-9a8f-12d29068b1ae.PNG)
+
 
 
 ## 4. JSP
@@ -279,10 +299,12 @@ forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태�
 - `Invalidate()` : 세션의 모든 데이터를 삭제.
 
 ### 예외 페이지
-- `<%@ page errorPage="*.jsp"%>`
-- `<%@ page isErrorPage="true"%>`
-- `<% response.setStatus(200); %>`
-- `<%= exception.getMessage() %>`
+#### 예외 발생 페이지
+- `<%@ page errorPage="*.jsp"%>` : 현재 페이지에서 에러가 발생하면 특정 페이지로 이동하게 하는 커맨드
+#### 예외 페이지
+- `<%@ page isErrorPage="true"%>` : 기본값이 false 이므로 true로 명시를 해줘야 exception 객체를 사용할 수 있다.
+- `<% response.setStatus(200); %>` : 예외 페이지는 에러가 발생된 페이지가 아니고 에러가 무엇인지를 보여주는 정상적인 페이지인데 200(정상)이라고 Status를 명시해주지 않으면 웹서버에서 전페이지의 에러코드에 대한 자체적으로 제공하는 페이지로 넘어가기 때문에 명시해줘야한다.
+- `<%= exception.getMessage() %>` : 예외가 발생된 이유를 표시해준다.
 
 ### 자바 빈
 반복적인 작업을 효율적으로 하기 위해 빈을 사용한다. 빈이란, JAVA언어의 데이터(속성)와 기능(메소드)으로 이루어진 클래스이다.
@@ -302,8 +324,57 @@ jsp페이지를 만들고, 액션태그를 이용하여 빈을 사용한다. 그
 `<jsp:getProperty name="Bean이름" property="속성이름">`
 
 ## 데이터베이스
+체계화된 데이터의 모임이다. 즉, 작성된 목록으로써 여러 응용 시스템들의 통합된 정보들을 저장하여 운영할 수 있는 공용 데이터들의 묶음이다.
+
+#### DBMS
+**DBMS(DataBase Management System, 데이터 베이스 관리 시스템)**은 언어와 데이터 베이스를 연결해 주는 도구이다. 일반적으로 데이터 베이스와 동일시한다.
+DBMS는 종류가 다양하며, 그중에서도 가장 많이 사용하는 것이 RDBMS(Relational DataBase Management System)이다.
 
 ![dbms](https://user-images.githubusercontent.com/42559714/44625449-df0f6b00-a944-11e8-94dd-3e45bcbf0f9d.PNG)
 
+#### JDBC
+JAVA 프로그램에서 SQL문을 실행하여 데이터를 관리하기 위한 JAVA API이다.
+JDBC의 특징은 다양한 데이터 베이스에 대해서 별도의 프로그램을 만들 필요 없이, 해당 데이터 베이스의 JDBC를 이용하면 하나의 프로그램으로 데이터 베이스를 관리 할 수 있다.
+
+#### 데이터 베이스 연결 순서
+
+![12](https://user-images.githubusercontent.com/42559714/44636745-5e09af80-a9e8-11e8-90a3-3ee5d97651ad.PNG)
+
+#### Statement 객체
+
+![13](https://user-images.githubusercontent.com/42559714/44636863-e4be8c80-a9e8-11e8-9ad2-5873675f9de2.PNG)
+
+![14](https://user-images.githubusercontent.com/42559714/44636912-2a7b5500-a9e9-11e8-9023-d03afba74de4.PNG)
+
 ### 커넥션 풀
+**커넥션 풀(DataBase Connection Pool; DBCP)**<br />
+클라이언트에서 다수의 요청이 발생하면 데이터베이스에서 커넥션 객체를 만드느라 서버에 부하가 생기게 된다. 이러한 문제를 해결하기 위해서 커넥션 풀은 미리 커넥션 객체를 만들어 놓고 요청이 들어오면 만들어 놓은 객체를 사용하여 부하를 줄인다.
+
+![17](https://user-images.githubusercontent.com/42559714/44637803-4b927480-a9ee-11e8-8244-1944d96c5184.PNG)
+
+### DAO
+**DAO : Data Access Object**<br />
+데이터 베이스에 접속해서 데이터 추가, 삭제, 수정 등의 작업을 하는 클래스이다.
+일반적인 JSP 혹은 Servlet 페이지내에 위의 로직을 함께 기술할 수도 있지만, 유지보수 및 코드의 모듈화를 위해 별도의 DAO클래스르 만들어 사용한다.
+
+### DTO
+**DTO : Data Transfer Object**<br />
+DAO클래스를 이용하여 데이터 베이스에서 데이터를 관리할 때 데이터를 일반적인 변수에 할당하여 작업할 수도 있지만, 너무 뒤섞여 난잡해질 수 있으므로 해당 데이터의 클래스를 만들어 사용한다.
+
+![15](https://user-images.githubusercontent.com/42559714/44637428-04a37f80-a9ec-11e8-9921-c4b84feeef75.PNG)
+
+### PreparedStatement
+SQL문을 실행하기 위한 Statement객체는 중복코드가 많아지는 단점이 있다. 이러한 단점을 보완하기위해 PreparedStatement를 사용한다.
+
+![16](https://user-images.githubusercontent.com/42559714/44637669-7f20cf00-a9ed-11e8-986a-75957028db10.PNG)
+
+### 파일 업로드
+
+### EL
+
+### JSTL
+
+### FrontContoller, Command 패턴
+
+### Forwarding
 
