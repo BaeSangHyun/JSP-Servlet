@@ -91,17 +91,29 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	}
 ```
 
-
-
 ### Context Path
+WAS에서 웹어플리케이션을 구분하기 위한 path.
+이클립스에서 프로젝트를 생성하면 자동으로 server.xml에 생성된다.
 
 ### Servlet 작동순서
 
+![3](https://user-images.githubusercontent.com/42559714/44635072-21d05200-a9dc-11e8-832b-ea051f881575.PNG)
+요청이 있을 때마다 쓰레드를 생성하여 처리하기 때문에 서버부하가 적다.
+
 ### Servlet LifeCycle
+Servelt은 최초 요청 시 객체가 만들어져 메모리에 로딩되고, 이후 요청 시에는 만들었던 객체를 재활용하여 동작속도가 빠르다.
+
+![4](https://user-images.githubusercontent.com/42559714/44635201-732d1100-a9dd-11e8-9271-9aafe5fb5702.PNG)
 
 ### Servlet 선,후처리
+LifeCycle 중 init()과 destroy()메소드에 관련하여 선처리(init)와 후처리(destroy) 작업이 가능하다.
+
+![5](https://user-images.githubusercontent.com/42559714/44635240-c1421480-a9dd-11e8-90e2-39a9978ae9af.PNG)
 
 ### Servlet Parameter
+Form 태그의 submit 버튼을 클릭하여 데이터를 서버로 전송 후 해당파일에서 HttpServletRequest객체를 사용하여 Parameter값을 얻을 수 있다.
+
+![6](https://user-images.githubusercontent.com/42559714/44635273-20a02480-a9de-11e8-8887-58121b24dab0.PNG)
 
 ### Encoding
 
