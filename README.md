@@ -65,9 +65,7 @@
         - [HttpServletResponse 클래스](#httpservletresponse-클래스)
 - [MVC](#mvc)
     - [Model 1](#model-1)
-    - [Model 2](#model-2)
-    - [전체적인 컴포넌트 설계](#전체적인-컴포넌트-설계)
-  
+    - [Model 2](#model-2)  
 
 
 ## 1. 웹프로그래밍이란
@@ -575,6 +573,3 @@ MVC에서 Model, View, Controller가 모두 모듈화 되어 있는 형태이다
 
 ![25](https://user-images.githubusercontent.com/42559714/44642468-4d1c6680-aa07-11e8-87d4-04ff92dc60a6.PNG)
 
-### 전체적인 컴포넌트 설계
-
-![27](https://user-images.githubusercontent.com/42559714/44642469-4d1c6680-aa07-11e8-98b5-28964f583d35.PNG)
