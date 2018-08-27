@@ -369,10 +369,118 @@ SQL문을 실행하기 위한 Statement객체는 중복코드가 많아지는 �
 ![16](https://user-images.githubusercontent.com/42559714/44637669-7f20cf00-a9ed-11e8-986a-75957028db10.PNG)
 
 ### 파일 업로드
+form의 input type을 file로 설정하여 업로드하는 방식이다. 
+webContent에 폴더를 하나 생성하여 경로를 지정해주면 업로드한 파일이 tomcat폴더의 wtpwebapps폴더 아래에 프로젝트명 밑으로 생성된다.
+
+#### form 부분 예
+기본적인 form메소드에 반드시 `enctype="multipart/form-data"`속성을 추가해줘야한다.
+```js
+<form action="업로드 처리부분 페이지.jsp" method="post" enctype="multipart/form-data">
+    파일 : <input type="file" name="file"><br />
+    <input type="submit" value="File Upload">
+</form>
+```
+#### 업로드 처리 부분 예
+```js
+<% String path = request.getRealPath("만들폴더명")
+
+int size = 1024 * 1024 * 10;  //10M
+String file = ""; //중복된 이름이 있으면 파일명 뒤에 1,2,3... 등이 붙는다.
+String oriFile = ""; //이름이 변경되기전의 실제 파일이름.
+
+try{
+    MulpartRequest mmulti = new MultipartRequest(request, path, size, "EUC-KR", new DefaultFileRenamePolicy());
+
+    Enumeration files = multi.getFileNames();
+    String str = (String)files.nextElement();
+
+    file = multi.getFilesystemName(str);
+    oriFile = multi.getOriginalFileName(str);
+} catch (Exception e){
+    e.printStackTrace();
+}
+>
+```
 
 ### EL
+**EL(Expression Language)**<br />
+표현식 또는 액션 태그를 대신해서 값을 표현하는 언어이다.
+표현식 | EL
+:---:|:---:
+<%= value %> | ${ value }
+
+#### EL 연산자
+<table>
+    <tr>
+        <th>산술</th><td>+, -, *, /, %</td>
+    </tr>
+    <tr>
+        <th>관계형</th><td>==, !=, <, >, <=, >=</td>
+    </tr>
+    <tr>
+        <th>조건</th><td>a? b : c</td>
+    </tr>
+    <tr>
+        <th>논리</th><td>&&, ||</td>
+    </tr>
+</table>
+
+#### 액션태그로 사용되는 EL
+`<jsp:getProperty name="member" property="name"/>` -> `${member.name}`
+
+#### 내장객체
+`pageScope` : page객체를 참조하는 객체
+`requestScope` : request객체를 참조하는 객체
+`sessionScope` : session객체를 참조하는 객체
+`applicationScope` : application객체를 참조하는 객체
+
+`param` : 요청 파라미터를 참조하는 객체
+`paramValues` : 요청 파라미터(배열)를 참조하는 객체
+`initParam` : 초기화 파라미터를 참조하는 객체
+`cookie` : cooki객체를 참조하는 객체
 
 ### JSTL
+**JSTL(JSP standard Tag Library)**<br />
+JSP의 경우 HTML 태그와 같이 사용되어 전체적인 코드의 가독성이 떨어진다.
+그래서 이러한 단점을 보완하고자 만들어진 태그 라이브러리가 JSTL이다.
+
+#### JSTL 라이브러리
+lib | URI | Prefix | ex
+:---:|:---:|:---:|:---:
+Core | http://java.sun.com/jsp/jstl/core | c | <c:tag
+XML Processing | http://java.sun.com/jsp/jstl/xml | x | <x:tag
+l18N formatting | http://java.sun.com/jsp/jstl/fmt | fmt | <fmt:tag
+SQL | http://java.sun.com/jstl/sql | sql | <sql:tag
+Functions | http://java.sun.com/jsp/jstl/functions | fn | fn:function()
+
+#### Core
+Core 라이브러리는 기본적인 라이브러리로 출력,제어문,반복문 같은 기능이 포함되어 있습니다.
+`<%@ taglib uri=http://java.sun.com/jsp/jstl/core prefix="c"%>`
+- 출력태그
+`<c:out value=${출력값} default="기본값" escapeXml="true or false">`<br />
+escapeXml값은 false면 특수기호가 그대로 출력되고 true면 해당하는 문자로 바뀐다.
+- 변수 설정 태그
+`<c:set var="변수명" value="설정값" target="객체" property="값" scope="범위">`
+- 변수를 제거하는 태그
+`<c:remove var="변수명" scope="범위">`
+- 예외 처리 태그
+`<c:catch var="변수명">`
+- 제어문(if) 태그
+`<c:if test=${조건} var="조건 처리 변수명" scope="범위">`
+- 제어문(swich) 태그
+```js
+<c:choose>
+<c:when test="조건">처리 내용</c:when>
+<c:otherwise>처리 내용</c:when>
+</c:chosse>
+```
+- 반복문(for) 태그
+`<c:forEach items="객체명" begin="시작 인덱스" end="끝 인덱스" step="증감식" var="변수명" varStatus="상태변수">`
+- 페이지 이동 태그
+`<c:redirect url="url">`
+
+- 파라미터 전달 태그
+`<c:param name="파라미터명" value="값">`
 
 ### FrontContoller, Command 패턴
 
