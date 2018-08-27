@@ -9,7 +9,7 @@
     - [doGet(), doPost()](#doget-dopost)
     - [Context Path](#context-path)
     - [Servlet 작동순서](#servlet-작동순서)
-    - [Servlet LifeCyle(생명주기)](#servlet-lifecyle생명주기)
+    - [Servlet LifeCyle(생명주기)](#servlet-lifecyle(생명주기))
     - [Servlet 선,후처리](#servlet-선후처리)
     - [Servlet Parameter](#servlet-parameter)
     - [Encoding](#encoding)
@@ -125,11 +125,11 @@ Form 태그의 submit 버튼을 클릭하여 데이터를 서버로 전송 후 �
 
 ### Encoding
 
-### Servlet 초기화 파라미터 : ServletConfig
+### Servlet 초기화 파라미터
 
-### 데이터 공유 : Servlet Context
+### 데이터 공유
 
-### 웹어플리케이션 감시 : ServletContextListener
+### 웹어플리케이션 감시
 
 
 ## 4. JSP
