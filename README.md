@@ -63,6 +63,10 @@
     - [Fowarding](#forwarding)
         - [RequestDispatcher 클래스](#requestdispatcher-클래스)
         - [HttpServletResponse 클래스](#httpservletresponse-클래스)
+- [MVC](#mvc)
+    - [Model 1](#model-1)
+    - [Model 2](#model-2)
+    - [전체적인 컴포넌트 설계](#전체적인-컴포넌트-설계)
   
 
 
@@ -549,3 +553,28 @@ dispatcher.foward(request, response);
 #### HttpServletResponse 클래스
 RequestDispatcher 클래스와 동일하게 요청을 위임하는 클래스이지만 요청받은 요청객체를 위임 받은 컴포넌트에 전달하는 것이 아닌, 새로운 요청객체를 생성한다.
 ![23](https://user-images.githubusercontent.com/42559714/44641789-b39f8580-aa03-11e8-9144-9c4ed444f95f.PNG)
+
+## MVC
+MVC란 Model, View, Controller를 뜻하는 용어로 개발 형태의 일종이다.<br />
+**Model**은 데이터베이스와의 관계를 담당한다. 클라이언트의 요청에서 필요한 자료를 데이터베이스로부터 추출하거나, 수정하여 Controller로 전달한다.<br />
+**View**는 사용자한테 보여지는 UI화면이다. 주로 .jsp파일로 작성하며, Controller에서 어떤 View 컴포넌트를 보여줄지 결정한다.
+**Controller**는 클라이언트의 요청을 받고, 적절한 Model에 지시를 내리며, Model에서 전달된 데이터를 적절한 View에 전달한다.
+
+![30](https://user-images.githubusercontent.com/42559714/44642519-86ed6d00-aa07-11e8-99bd-00c3fadc2628.PNG)
+
+### Model 1
+MVC에서 View와 Controller가 같이 있는 형태이다.<br />
+규모가 작고 유지보수보다 빠른개발이 더 급선무일 때 선호한다.
+
+![24](https://user-images.githubusercontent.com/42559714/44642470-4db4fd00-aa07-11e8-8e37-3cd5168adf39.PNG)
+
+
+### Model 2
+MVC에서 Model, View, Controller가 모두 모듈화 되어 있는 형태이다.<br />
+프로젝트가 크고 지속적인 유지보수가 이뤄질 때 자주 쓴다.
+
+![25](https://user-images.githubusercontent.com/42559714/44642468-4d1c6680-aa07-11e8-87d4-04ff92dc60a6.PNG)
+
+### 전체적인 컴포넌트 설계
+
+![27](https://user-images.githubusercontent.com/42559714/44642469-4d1c6680-aa07-11e8-98b5-28964f583d35.PNG)
