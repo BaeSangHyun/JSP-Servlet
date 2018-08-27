@@ -8,6 +8,8 @@
         - [Servlet Mapping 방법](#servlet-mapping-방법)
     - [doGet(), doPost()](#doget-dopost)
     - [Context Path](#context-path)
+    - [Servlet 작동순서](#servlet-작동순서)
+    - [Servlet LifeCyle(생명주기)](#servlet-lifecyle)
 - [JSP](#jsp)
     - [JSP 태그종류](#jsp-태그종류)
     - [JSP 동작원리](#jsp-동작원리)
@@ -100,7 +102,7 @@ WAS에서 웹어플리케이션을 구분하기 위한 path.
 ![3](https://user-images.githubusercontent.com/42559714/44635072-21d05200-a9dc-11e8-832b-ea051f881575.PNG)
 요청이 있을 때마다 쓰레드를 생성하여 처리하기 때문에 서버부하가 적다.
 
-### Servlet LifeCycle
+### Servlet LifeCycle(생명주기)
 Servelt은 최초 요청 시 객체가 만들어져 메모리에 로딩되고, 이후 요청 시에는 만들었던 객체를 재활용하여 동작속도가 빠르다.
 
 ![4](https://user-images.githubusercontent.com/42559714/44635201-732d1100-a9dd-11e8-9271-9aafe5fb5702.PNG)
