@@ -34,6 +34,37 @@
     - [쿠키](#쿠키)
     - [세션](#세션)
         -[세션 메소드](#세션-메소드)
+    - [예외 페이지](#예외-페이지)
+        - [예외 발생 페이지](#예외-발생-페이지)
+        - [예외 응답 페이지](#예외-응답-페이지)
+    - [자바 빈](#자바-빈)
+        - [관련 액션 태그](#관련-액션-태그)
+- [데이터베이스](#데이터베이스)
+    - [DBMS](#DBMS)
+    - [JDBC](#JDBC)
+    - [데이터 베이스 연결 순서](#데이터-베이스-연결-순서)
+    - [Statement 객체](#statement-객체)
+    - [커넥션 풀](#커넥션-풀)
+    - [DAO](#dao)
+    - [DTO](#dto)
+    - [PreparedStatement](#preparedstatement)
+    - [파일 업로드](#파일-업로드)
+    - [EL](#el)
+        - [EL 연산자](#el-연산자)
+        - [액션태그로 사용되는 EL](액션태그로-사용되는-el)
+        - [내장객체](#내장객체)
+    - [JSTL](#jstl)
+        - [JSTL 라이브러리](#jstl-라이브러리)
+        - [Core](#core)
+    - [FrontController, Command 패턴](#frontcontroller-command-패턴)
+        - [url-pattern](#url-pattern)
+        - [FrontController 패턴](#frontcontroller-패턴)
+        - [Command 패턴](#command-패턴)
+    - [Fowarding](#forwarding)
+        - [RequestDispatcher 클래스](#requestdispatcher-클래스)
+        - [HttpServletResponse 클래스](#httpservletresponse-클래스)
+  
+
 
 ## 1. 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
@@ -326,21 +357,21 @@ jsp페이지를 만들고, 액션태그를 이용하여 빈을 사용한다. 그
 ## 데이터베이스
 체계화된 데이터의 모임이다. 즉, 작성된 목록으로써 여러 응용 시스템들의 통합된 정보들을 저장하여 운영할 수 있는 공용 데이터들의 묶음이다.
 
-#### DBMS
+### DBMS
 **DBMS(DataBase Management System, 데이터 베이스 관리 시스템)**은 언어와 데이터 베이스를 연결해 주는 도구이다. 일반적으로 데이터 베이스와 동일시한다.
 DBMS는 종류가 다양하며, 그중에서도 가장 많이 사용하는 것이 RDBMS(Relational DataBase Management System)이다.
 
 ![dbms](https://user-images.githubusercontent.com/42559714/44625449-df0f6b00-a944-11e8-94dd-3e45bcbf0f9d.PNG)
 
-#### JDBC
+### JDBC
 JAVA 프로그램에서 SQL문을 실행하여 데이터를 관리하기 위한 JAVA API이다.
 JDBC의 특징은 다양한 데이터 베이스에 대해서 별도의 프로그램을 만들 필요 없이, 해당 데이터 베이스의 JDBC를 이용하면 하나의 프로그램으로 데이터 베이스를 관리 할 수 있다.
 
-#### 데이터 베이스 연결 순서
+### 데이터 베이스 연결 순서
 
 ![12](https://user-images.githubusercontent.com/42559714/44636745-5e09af80-a9e8-11e8-90a3-3ee5d97651ad.PNG)
 
-#### Statement 객체
+### Statement 객체
 
 ![13](https://user-images.githubusercontent.com/42559714/44636863-e4be8c80-a9e8-11e8-9ad2-5873675f9de2.PNG)
 
@@ -484,5 +515,37 @@ escapeXml값은 false면 특수기호가 그대로 출력되고 true면 해당�
 
 ### FrontContoller, Command 패턴
 
-### Forwarding
+#### url-pattern
+- 디렉터리 패턴
+디렉터리 형태로 서버의 해당 컴포넌트를 찾아서 실행하는 구조.<br />
+![18](https://user-images.githubusercontent.com/42559714/44641284-3d018880-aa01-11e8-8d21-fefb2ac6cbe1.PNG)
 
+- 확장자 패턴
+확장자 형태로 서버의 해당 컴포넌트를 찾아서 실행하는 구조.<br />
+![19](https://user-images.githubusercontent.com/42559714/44641285-3d018880-aa01-11e8-9b5a-0b9240c45337.PNG)
+
+#### FrontController 패턴
+클라이언트의 다양한 요청을 한곳으로 집중시켜, 개발 및 유지보수에 효율성을 극대화 한다.
+
+![20](https://user-images.githubusercontent.com/42559714/44641286-3d018880-aa01-11e8-80a2-0f7f739b2d61.PNG)
+
+#### Command 패턴
+클라이언트로부터 받은 요청들에 대해서, 서블릿이 작업을 직접 처리하지 않고, 해당 Service클래스를 따로 만들어 처리하도록 한다.
+
+![21](https://user-images.githubusercontent.com/42559714/44641625-ac2bac80-aa02-11e8-8882-331fb202e3e5.PNG)
+
+### Forwarding
+서블릿 또는 Jsp에서 요청을 받은 후 다른 콤포넌트로 요청을 위임한다.
+
+#### RequestDispatcher 클래스
+요청 받은 요청객체(request)를 위임하는 컴포넌트에 동일하게 전달 할 수 있다.
+```js
+RequestDispatcher dispatcher = request.getRequestDispatcher("/*.jsp");
+dispatcher.foward(request, response);
+```
+
+![22](https://user-images.githubusercontent.com/42559714/44641788-b306ef00-aa03-11e8-8cc3-ed18afa355bb.PNG)
+
+#### HttpServletResponse 클래스
+RequestDispatcher 클래스와 동일하게 요청을 위임하는 클래스이지만 요청받은 요청객체를 위임 받은 컴포넌트에 전달하는 것이 아닌, 새로운 요청객체를 생성한다.
+![23](https://user-images.githubusercontent.com/42559714/44641789-b39f8580-aa03-11e8-9144-9c4ed444f95f.PNG)
