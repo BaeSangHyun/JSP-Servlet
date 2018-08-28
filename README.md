@@ -97,7 +97,7 @@
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
 
-## 3. Servlet(서블릿)
+## 3. Servlet
 
 ### Servlet Mapping
 - 접속 경로가 너무 긴 경우 짧은 이름으로 사용할 수 있습니다.
