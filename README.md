@@ -1,7 +1,7 @@
 # JSP-Servlet
 
 ## Content
-- [웹프로그래밍이란](#1-웹프로그래밍이란)
+- [웹프로그래밍이란](#웹프로그래밍이란)
 - [Java Web](#java-web)
 - [Servlet](#servlet)
     - [Servlet Mapping](#servlet-mapping)
@@ -68,7 +68,7 @@
     - [Model 2](#model-2)  
 
 
-## 1. 웹프로그래밍이란
+## 웹프로그래밍이란
 1. 웹프로그래밍이란, 웹어플리케이션을 구현하는 행위
 2. 웹어플리케이션이란, 웹을 기반으로 작동되는 프로그램
 3. 웹이란, 1개 이상의 사이트가 연결되어있는 인터넷 서비스의 한가지 형태
@@ -97,7 +97,7 @@
 JAVA플랫폼(J2SE, J2EE, J2ME)중에서 J2EE를 이용한 웹프로그래밍
 ![web](https://user-images.githubusercontent.com/42559714/44499590-83807b80-a6bf-11e8-8ee9-933083dd6405.PNG)
 
-## 3. Servlet
+## 3. Servlet(서블릿)
 
 ### Servlet Mapping
 - 접속 경로가 너무 긴 경우 짧은 이름으로 사용할 수 있습니다.
