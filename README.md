@@ -304,7 +304,7 @@ forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태�
 ![2](https://user-images.githubusercontent.com/42559714/44571608-2fa78c80-a7bc-11e8-9fbc-0b0d710ce53d.PNG)
 
 #### 쿠키 관련 메소드
-- `setMaxAge()` : 쿠키 유효기간을 설정
+- `setMaxAge()` : 쿠키 유효기간을 설정(초단위)
 - `setpath()` : 쿠키사용의 유효 디렉토리를 설정
 - `setValue()` : 쿠키의 값을 설정
 - `setVersion()` : 쿠키 버전을 설정
@@ -327,7 +327,7 @@ forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태�
 - `getAttributeNames()` : 세션에 저장되어 있는 모든 데이터의 이름(유니크한 키값)을 얻는다.
 - `getId()` : 자동 생성된 세션의 유니크한 아이디를 얻는다.
 - `isNew()` : 세션이 최초 생성되었는지, 이전에 생성된 세션인지를 구분.
-- `getMaxInactiveInterval()` : 세션의 유효시간을 얻는다. 가장 최근 요청시점을 기준으로 카운트.(tomcat폴더의 conf\web.xml파일을 수정하면 세션의 유효시간을 설정 할 수 있다.)
+- `getMaxInactiveInterval()` : 세션의 유효시간을 얻는다. 가장 최근 요청시점을 기준으로 카운트.(tomcat폴더의 conf\web.xml파일을 수정하면 세션의 유효시간을 설정 할 수 있다.)(초단위)
 - `removeAttribute()` : 세션에서 특정 데이트를 제거.
 - `Invalidate()` : 세션의 모든 데이터를 삭제.
 
